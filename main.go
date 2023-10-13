@@ -1,19 +1,19 @@
 package main
 
 import (
+	"dig/router"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func main() {
 	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
-	})
+
+	v1 := r.Group("/v1")
+
+	router.UserRouter(v1)
+
 	err := r.Run()
 	if err != nil {
 		return
-	} // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	}
 }
