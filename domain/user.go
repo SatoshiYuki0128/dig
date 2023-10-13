@@ -1,8 +1,15 @@
 package domain
 
+import "time"
+
 type User struct {
-	ID       int    `json:"id"`
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	ID         int
+	Name       string
+	Email      string
+	Password   string
+	CreateTime time.Time
+}
+
+func (User) TableName() string {
+	return "user"
 }

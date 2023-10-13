@@ -1,13 +1,9 @@
-package usecase
+package repository
 
 import "time"
 
-type GetOneUserByIDReq struct {
-	ID string `json:"id"`
-}
-
 type CreateUserReq struct {
-	Name     string `json:"name" validate:"required"`
+	Name     string `json:"name"`
 	Email    string `json:"email"`
 	Password string `json:"password"`
 }
