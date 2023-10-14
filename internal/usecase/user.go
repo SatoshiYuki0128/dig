@@ -2,8 +2,8 @@ package usecase
 
 import (
 	"context"
-	"dig/domain"
-	"dig/repository"
+	"dig/internal/domain"
+	repository2 "dig/internal/repository"
 )
 
 func GetOneUserByID(ctx context.Context, req GetOneUserByIDReq) (domain.User, error) {
@@ -13,13 +13,13 @@ func GetOneUserByID(ctx context.Context, req GetOneUserByIDReq) (domain.User, er
 //TODO get users by filter
 
 func CreateUser(ctx context.Context, req CreateUserReq) (CreateUserResp, error) {
-	user := repository.CreateUserReq{
+	user := repository2.CreateUserReq{
 		Name:     req.Name,
 		Email:    req.Email,
 		Password: req.Password,
 	}
 
-	result, err := repository.CreateUser(ctx, user)
+	result, err := repository2.CreateUser(ctx, user)
 	if err != nil {
 		return CreateUserResp{}, err
 	}

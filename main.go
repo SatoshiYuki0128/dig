@@ -1,9 +1,9 @@
 package main
 
 import (
-	"dig/common"
-	"dig/config"
-	"dig/router"
+	"dig/internal/common"
+	"dig/internal/config"
+	"dig/internal/router"
 	"github.com/gin-gonic/gin"
 	"log"
 )

@@ -1,6 +1,8 @@
 package handler
 
-import "dig/usecase"
+import (
+	"dig/internal/usecase"
+)
 
 type CreateUserReq struct {
 	Name     string `json:"name" validate:"required"`

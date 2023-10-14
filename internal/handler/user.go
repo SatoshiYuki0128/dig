@@ -2,7 +2,7 @@ package handler
 
 import (
 	"context"
-	"dig/usecase"
+	usecase2 "dig/internal/usecase"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -15,7 +15,7 @@ func GetOneUserByID(c *gin.Context) {
 
 	id := c.Param("id")
 
-	user, err := usecase.GetOneUserByID(ctx, usecase.GetOneUserByIDReq{ID: id})
+	user, err := usecase2.GetOneUserByID(ctx, usecase2.GetOneUserByIDReq{ID: id})
 	if err != nil {
 		c.JSON(http.StatusOK, err)
 		return
@@ -43,7 +43,7 @@ func CreateUser(c *gin.Context) {
 		return
 	}
 
-	user, err := usecase.CreateUser(ctx, req.ToUseCase())
+	user, err := usecase2.CreateUser(ctx, req.ToUseCase())
 	if err != nil {
 		c.JSON(http.StatusOK, fmt.Sprintf("usecase.CreateUser err: %s", err))
 		return

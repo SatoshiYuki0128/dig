@@ -1,7 +1,7 @@
 package router
 
 import (
-	"dig/handler"
+	"dig/internal/handler"
 	"github.com/gin-gonic/gin"
 )
 

@@ -2,8 +2,8 @@ package repository
 
 import (
 	"context"
-	"dig/common"
-	"dig/domain"
+	"dig/internal/common"
+	"dig/internal/domain"
 	"time"
 )
 

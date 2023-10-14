@@ -1,7 +1,7 @@
 package common
 
 import (
-	"dig/config"
+	"dig/internal/config"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
