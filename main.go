@@ -5,6 +5,7 @@ import (
 	"dig/config"
 	"dig/router"
 	"github.com/gin-gonic/gin"
+	"log"
 )
 
 func main() {
@@ -24,8 +25,16 @@ func main() {
 	v1 := r.Group("/v1")
 	router.UserRouter(v1)
 
+	r.ForwardedByClientIP = true
+	err = r.SetTrustedProxies([]string{"127.0.0.1"})
+	if err != nil {
+		log.Fatal("r.SetTrustedProxies error")
+		return
+	}
+
 	err = r.Run()
 	if err != nil {
+		log.Fatal("r.Run error")
 		return
 	}
 }
