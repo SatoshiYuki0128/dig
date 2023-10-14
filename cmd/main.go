@@ -12,12 +12,14 @@ func main() {
 	// init config
 	err := config.InitConfig()
 	if err != nil {
+		log.Fatal(err)
 		return
 	}
 
 	// init mysql
 	err = common.InitMysql()
 	if err != nil {
+		log.Fatal(err)
 		return
 	}
 
@@ -28,13 +30,13 @@ func main() {
 	r.ForwardedByClientIP = true
 	err = r.SetTrustedProxies([]string{"127.0.0.1"})
 	if err != nil {
-		log.Fatal("r.SetTrustedProxies error")
+		log.Fatal(err)
 		return
 	}
 
 	err = r.Run()
 	if err != nil {
-		log.Fatal("r.Run error")
+		log.Fatal(err)
 		return
 	}
 }
